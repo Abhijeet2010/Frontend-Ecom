@@ -8,34 +8,35 @@ import Sort from "./components/Sort";
 
 const Products = () => {
   const navigate = useNavigate();
-  const callProducts = async () => {
-    try {
-      const res = await fetch(
-        "https://backend-ecom-uc6y.onrender.com/products",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
-      const data = await res.json();
-      console.log(data);
-      if (res.status !== 200) {
-        const error = new Error(res.error);
-        throw error;
-      }
-    } catch (error) {
-      console.log(error.message);
-      navigate("/login");
-    }
-  };
 
   useEffect(() => {
+    const callProducts = async () => {
+      try {
+        const res = await fetch(
+          "https://backend-ecom-uc6y.onrender.com/products",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+          }
+        );
+        const data = await res.json();
+        console.log(data);
+        if (res.status !== 200) {
+          const error = new Error(res.error);
+          throw error;
+        }
+      } catch (error) {
+        console.log(error.message);
+        navigate("/login");
+      }
+    };
+
     callProducts();
-  }, []);
+  }, [navigate]);
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">

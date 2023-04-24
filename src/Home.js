@@ -7,32 +7,32 @@ import { useEffect } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
-  const callHomePage = async () => {
-    try {
-      const res = await fetch("https://backend-ecom-uc6y.onrender.com/", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
-      const data = await res.json();
-      console.log(data);
-
-      if (res.status !== 200) {
-        const error = new Error(res.error);
-        throw error;
-      }
-    } catch (error) {
-      console.log(error.message);
-      navigate("/login");
-    }
-  };
 
   useEffect(() => {
+    const callHomePage = async () => {
+      try {
+        const res = await fetch("https://backend-ecom-uc6y.onrender.com/", {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
+        const data = await res.json();
+        console.log(data);
+
+        if (res.status !== 200) {
+          const error = new Error(res.error);
+          throw error;
+        }
+      } catch (error) {
+        console.log(error.message);
+        navigate("/login");
+      }
+    };
     callHomePage();
-  }, []);
+  }, [navigate]);
 
   const data = {
     name: "I Shop Store",
