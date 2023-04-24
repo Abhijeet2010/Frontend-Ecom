@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi";
@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 // import { useAuth0 } from "@auth0/auth0-react";
 
 const Nav = () => {
-  const { state, dispatch } = useContext(userContext);
+  const { state } = useContext(userContext);
   const username = useSelector((state) => state.auth.user);
   console.log(username);
   const [menuIcon, setMenuIcon] = useState();

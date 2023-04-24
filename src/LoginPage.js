@@ -10,7 +10,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { state, dispatch } = useContext(userContext);
+  const { dispatch } = useContext(userContext);
 
   const rtkDispatch = useDispatch();
 

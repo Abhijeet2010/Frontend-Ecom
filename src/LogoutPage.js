@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { userContext } from "./App";
 
 const LogoutPage = () => {
-  const { state, dispatch } = useContext(userContext);
+  const { dispatch } = useContext(userContext);
   const navigate = useNavigate();
   const calllogOutPage = async () => {
     try {

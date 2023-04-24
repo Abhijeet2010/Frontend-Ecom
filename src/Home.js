@@ -18,6 +18,7 @@ const Home = () => {
         credentials: "include",
       });
       const data = await res.json();
+      console.log(data);
 
       if (res.status !== 200) {
         const error = new Error(res.error);
